@@ -18,12 +18,22 @@ const spaces = [
   128,
 ];
 
+const typeScale = [
+    12,
+    14,
+    16,
+    24,
+    32,
+    64
+];
+
 const fontFamily = "Helvetica";
 
 const tokens = {
     colors,
     spaces,
-    fontFamily
+    fontFamily,
+    typeScale
 }
 
 export default tokens;
