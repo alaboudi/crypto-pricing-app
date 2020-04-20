@@ -3,6 +3,8 @@ import styled from "styled-components";
 import tokens from "./tokens";
 
 import Checkbox from "./checkbox";
+import Label from "./label";
+import Input from "./input";
 
 const OptionContainer = styled.div`
   background-color: ${tokens.colors.white};
@@ -16,12 +18,19 @@ const OptionContainer = styled.div`
 interface MultiSelectProps {
     options: { value: any; label: string }[];
     selected: any[];
+    onChange: () => void
 }
 
 const MultiSelect = (props: MultiSelectProps) => (
     <>
-        <OptionContainer>
-            <Checkbox />
-        </OptionContainer>
+        <Input />
+        {props.options.map(option => (
+            <OptionContainer>
+                <Checkbox /><Label>{option.label}</Label>
+            </OptionContainer>
+        ))}
+
     </>
 );
+
+export default MultiSelect;
