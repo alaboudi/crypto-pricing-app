@@ -16,6 +16,7 @@ const spaces = [
   32,
   64,
   128,
+  256,
 ];
 
 const typeScale = [
