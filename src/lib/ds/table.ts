@@ -4,7 +4,7 @@ import tokens from "./tokens";
 export const Table = styled.table`
   border-collapse: collapse;
   border-radius: 5px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 0px 1px 1px ${tokens.colors.gray100};
 `;
 
 export const TableRow = styled.tr`
