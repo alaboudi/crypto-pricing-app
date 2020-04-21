@@ -7,6 +7,10 @@ export const Table = styled.table`
   box-shadow: 0px 0px 1px 1px ${tokens.colors.gray100};
 `;
 
+export const TableHead = styled.thead``;
+
+export const TableBody = styled.tbody``;
+
 export const TableRow = styled.tr`
   &:not(:last-of-type) {
     border-bottom: 1px solid ${tokens.colors.gray100};
