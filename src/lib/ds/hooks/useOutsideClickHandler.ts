@@ -3,9 +3,6 @@ import {useEffect} from "react";
 // todo: replace event with proper typing
 function useOutsideClickHandler(ref: any, handler: any) {
     useEffect(() => {
-        // /**
-        //  * Alert if clicked on outside of element
-        //  */
         function handleClickOutside(event: any) {
             if (ref.current && !ref.current.contains(event.target)) {
                 handler();
@@ -17,7 +14,7 @@ function useOutsideClickHandler(ref: any, handler: any) {
             // Unbind the event listener on clean up
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [ref]);
+    }, [ref, handler]);
 }
 
 export default useOutsideClickHandler;
