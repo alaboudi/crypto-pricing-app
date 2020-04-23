@@ -12,7 +12,7 @@ import {
     createStockPriceRetrievedEvent, createStockRemovedEvent
 } from "./actions";
 
-interface State {
+export interface State {
     catalogue: Map<number, Stock>;
     prices: Map<number, number>;
     selectedStocks: number[];
