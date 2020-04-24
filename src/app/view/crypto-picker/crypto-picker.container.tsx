@@ -1,7 +1,7 @@
 import {createSelector, createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import Stock from "../../models/stock";
-import {selectCatalogue, selectSelectedStocks, State} from "../../state/reducer";
+import {selectCatalogue, selectSelectedStocks, State} from "../../store/reducer";
 import CryptoPicker, {CryptoPickerProps} from "./crypto-picker.component";
 
 const createCryptoListFromCatalogue = (catalogue: Map<number, Stock>): Map<number, string> => {

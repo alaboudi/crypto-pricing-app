@@ -2,7 +2,7 @@ import {createSelector, createStructuredSelector} from "reselect";
 import CryptoPriceTracker, { CryptoPriceTrackerProps } from "./crypto-price-tracker.component";
 import { connect } from "react-redux";
 import Stock from "../../models/stock";
-import {selectCatalogue, selectPrices, selectSelectedStocks, State} from "../../state/reducer";
+import {selectCatalogue, selectPrices, selectSelectedStocks, State} from "../../store/reducer";
 
 const createCryptos = (
     catalogue: Map<number, Stock>,
