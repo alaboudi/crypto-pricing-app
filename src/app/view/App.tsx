@@ -1,11 +1,12 @@
 import React from 'react';
-import CryptoPicker from "./crypto-picker";
-import CryptoPriceTracker from "./crypto-price-tracker";
 import Title from "../../lib/ds/title";
 import Subtitle from "../../lib/ds/subtitle";
 import Container from "../../lib/ds/container";
 import TitleGroup from "../../lib/ds/title-group";
 import Spacer from "../../lib/ds/spacer";
+
+import CryptoPicker from "./crypto-picker";
+import CryptoPriceTracker from "./crypto-price-tracker";
 
 const App = () => (
     <Container>
