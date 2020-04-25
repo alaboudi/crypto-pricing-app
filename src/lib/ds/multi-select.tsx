@@ -24,7 +24,6 @@ const OptionsContainer = styled.div`
 
 const Option = styled.div`
   background-color: ${tokens.colors.white};
-  bottom-border: 1px solid ${tokens.colors.gray100};
   height: ${tokens.spaces[3]}px;
   padding-left: ${tokens.spaces[2]}px;
   padding-top: ${tokens.spaces[1]}px;
