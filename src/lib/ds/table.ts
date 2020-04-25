@@ -2,6 +2,7 @@ import styled from "styled-components";
 import tokens from "./tokens";
 
 export const Table = styled.table`
+  width: 100%;
   border-collapse: collapse;
   border-radius: 5px;
   box-shadow: 0px 0px 1px 1px ${tokens.colors.gray100};

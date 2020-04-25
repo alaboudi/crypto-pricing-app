@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import App from "./App";
+import App from "./app";
 import { createAppKickedOffEvent } from "../store/actions";
 
 const AppContainer = () => {
