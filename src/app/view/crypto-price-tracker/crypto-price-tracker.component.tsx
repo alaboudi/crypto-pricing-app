@@ -1,9 +1,10 @@
-import React from "react";
+import React, {MouseEvent} from "react";
 import {Table, TableData, TableHeader, TableRow, TableHead, TableBody} from "../../../lib/ds/table";
 import Button from "../../../lib/ds/button";
 
 export interface CryptoPriceTrackerProps {
-    cryptos: { rank: number; symbol: string; price: string; }[];
+    cryptos: { id: number; rank: number; symbol: string; price: string; }[];
+    onDeleteClick: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => (
@@ -22,7 +23,9 @@ const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => (
                     <TableData>{crypto.rank}</TableData>
                     <TableData>{crypto.symbol}</TableData>
                     <TableData>${crypto.price}</TableData>
-                    <TableData><Button>Delete</Button></TableData>
+                    <TableData>
+                        <Button data-id={crypto.id} onClick={props.onDeleteClick}>Delete</Button>
+                    </TableData>
                 </TableRow>
             ))}
         </TableBody>
