@@ -6,7 +6,8 @@ const colors = {
     gray700: "#4d4d4d",
     gray800: "#333333",
     blue500: "#03a9f4",
-    white: "#fff"
+    white: "#fff",
+    red: "#f32013"
 };
 
 const spaces = [

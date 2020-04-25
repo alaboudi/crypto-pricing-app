@@ -1,5 +1,6 @@
 import React from "react";
 import {Table, TableData, TableHeader, TableRow, TableHead, TableBody} from "../../../lib/ds/table";
+import Button from "../../../lib/ds/button";
 
 export interface CryptoPriceTrackerProps {
     cryptos: { rank: number; symbol: string; price: string; }[];
@@ -21,7 +22,7 @@ const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => (
                     <TableData>{crypto.rank}</TableData>
                     <TableData>{crypto.symbol}</TableData>
                     <TableData>${crypto.price}</TableData>
-                    <TableData>Delete</TableData>
+                    <TableData><Button>Delete</Button></TableData>
                 </TableRow>
             ))}
         </TableBody>
