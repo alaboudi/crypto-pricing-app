@@ -17,7 +17,7 @@ const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => (
         </TableHead>
         <TableBody>
             {props.cryptos.map(crypto => (
-                <TableRow>
+                <TableRow key={crypto.symbol}>
                     <TableData>{crypto.rank}</TableData>
                     <TableData>{crypto.symbol}</TableData>
                     <TableData>${crypto.price}</TableData>
