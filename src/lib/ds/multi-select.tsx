@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, ChangeEvent} from "react";
 import styled from "styled-components";
 import useOutsideClickHandler from "./hooks/useOutsideClickHandler";
 import tokens from "./tokens";
@@ -34,7 +34,7 @@ type Serializable = number | string;
 interface MultiSelectProps {
     options: Map<Serializable, string>;
     selected: Serializable[];
-    onChange: () => void;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     placeholder: string;
 }
 
@@ -59,7 +59,12 @@ const MultiSelect = (props: MultiSelectProps) => {
                 <OptionsContainer>
                     {Array.from(props.options).map(([id, label]) => (
                         <Option key={id}>
-                            <Checkbox checked={props.selected.includes(id)}/><Label>{label}</Label>
+                            <Checkbox
+                                data-id={id}
+                                onChange={props.onChange}
+                                checked={props.selected.includes(id)}
+                            />
+                            <Label>{label}</Label>
                         </Option>
                     ))}
                 </OptionsContainer>
