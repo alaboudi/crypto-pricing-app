@@ -20,7 +20,7 @@ const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => (
                 <TableRow>
                     <TableData>{crypto.rank}</TableData>
                     <TableData>{crypto.symbol}</TableData>
-                    <TableData>{crypto.price}</TableData>
+                    <TableData>${crypto.price}</TableData>
                     <TableData>Delete</TableData>
                 </TableRow>
             ))}
