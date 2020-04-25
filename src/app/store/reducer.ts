@@ -1,4 +1,4 @@
-import produce from "immer";
+import produce, { enableMapSet } from "immer";
 import {createReducer} from "@reduxjs/toolkit";
 import { without } from "ramda";
 
@@ -11,6 +11,8 @@ import {
     createStockPriceRetrievalFailedEvent,
     createStockPriceRetrievedEvent, createStockRemovedEvent
 } from "./actions";
+
+enableMapSet();
 
 export interface State {
     catalogue: Map<number, Stock>;

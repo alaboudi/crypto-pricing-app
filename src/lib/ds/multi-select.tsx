@@ -1,36 +1,72 @@
-import React from "react"
+import React, {useState, useRef} from "react";
 import styled from "styled-components";
+import useOutsideClickHandler from "./hooks/useOutsideClickHandler";
 import tokens from "./tokens";
 
 import Checkbox from "./checkbox";
 import Label from "./label";
 import Input from "./input";
 
-const OptionContainer = styled.div`
-  background-color: ${tokens.colors.white};
-  bottom-border: 1px solid ${tokens.colors.gray100};
-  height: ${tokens.spaces[3]};
-  padding-left: ${tokens.spaces[2]};
+const Container = styled.div`
+  display: inline-block;
+  position: relative;
 `;
 
-//api will be <multiselect options={[{value:"", label:""}]} selected={[]}>
+const OptionsContainer = styled.div`
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  top: calc(100% + ${tokens.spaces[2]}px);
+  max-height: ${tokens.spaces[6]}px;
+  box-shadow: 1px 2px 6px 1px ${tokens.colors.gray100};
+  overflow-y: auto;
+`;
+
+const Option = styled.div`
+  background-color: ${tokens.colors.white};
+  bottom-border: 1px solid ${tokens.colors.gray100};
+  height: ${tokens.spaces[3]}px;
+  padding-left: ${tokens.spaces[2]}px;
+  padding-top: ${tokens.spaces[1]}px;
+`;
+
+type Serializable = number | string;
 
 interface MultiSelectProps {
-    options: { value: any; label: string }[];
-    selected: any[];
-    onChange: () => void
+    options: Map<Serializable, string>;
+    selected: Serializable[];
+    onChange: () => void;
+    placeholder: string;
 }
 
-const MultiSelect = (props: MultiSelectProps) => (
-    <>
-        <Input />
-        {props.options.map(option => (
-            <OptionContainer>
-                <Checkbox /><Label>{option.label}</Label>
-            </OptionContainer>
-        ))}
+const MultiSelect = (props: MultiSelectProps) => {
+    const [AreOptionsVisible, setAreOptionsVisible] = useState<boolean>(false);
+    const containingElementRef = useRef(null);
 
-    </>
-);
+    const showOptions = () => {
+        setAreOptionsVisible(true);
+    }
+
+    const hideOptions = () => {
+        setAreOptionsVisible(false);
+    }
+
+    useOutsideClickHandler(containingElementRef, hideOptions);
+
+    return (
+        <Container ref={containingElementRef}>
+            <Input placeholder={props.placeholder} onClick={showOptions} readOnly/>
+            {AreOptionsVisible && (
+                <OptionsContainer>
+                    {Array.from(props.options).map(([id, label]) => (
+                        <Option key={id}>
+                            <Checkbox checked={props.selected.includes(id)}/><Label>{label}</Label>
+                        </Option>
+                    ))}
+                </OptionsContainer>
+            )}
+        </Container>
+    );
+};
 
 export default MultiSelect;
