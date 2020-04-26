@@ -18,6 +18,7 @@ const selectCryptoList = createSelector(
 
 const CryptoPickerContainer = () => {
     const VISIBLE_STOCK_LIMIT = 10;
+
     const cryptoList = useSelector(selectCryptoList);
     const selectedCryptoIds = useSelector(selectSelectedStocks);
     const dispatch = useDispatch();

@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import Title from "../../lib/ds/title";
 import Subtitle from "../../lib/ds/subtitle";
 import Container from "../../lib/ds/container";
