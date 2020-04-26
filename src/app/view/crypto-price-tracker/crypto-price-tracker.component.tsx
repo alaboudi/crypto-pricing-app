@@ -22,7 +22,7 @@ const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => {
                 return (<Button data-id={row.original.id} onClick={props.onDeleteClick}>Delete</Button>)
             }}
         ],
-        []
+        [props.onDeleteClick]
     );
 
     const {
@@ -42,9 +42,15 @@ const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => {
                 {headerGroups.map(
                     headerGroup => (
                         <TableRow {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map(column => (
-                                <TableHeader {...column.getHeaderProps()}>{column.render('Header')}</TableHeader>
-                            ))}
+                            {headerGroup.headers.map((column: any) => {
+                                const isAsc = column.isSorted && !column.isSortedDesc;
+                                const isDsc = column.isSorted && column.isSortedDesc;
+                                return (
+                                    <TableHeader isAsc={isAsc} isDsc={isDsc} {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                        {column.render('Header')}
+                                    </TableHeader>
+                                )
+                            })}
                         </TableRow>
                     )
                 )}

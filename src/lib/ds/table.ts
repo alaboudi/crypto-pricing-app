@@ -18,7 +18,22 @@ export const TableRow = styled.tr`
   }
 `;
 
-export const TableHeader = styled.th`
+interface TableHeaderProps {
+  isAsc?: boolean;
+  isDsc?: boolean;
+}
+
+const getSortMakerContent = (props: TableHeaderProps) => {
+  if(props.isAsc) {
+    return "'▲'";
+  } else if(props.isDsc) {
+    return "'▼'";
+  } else {
+    return ""
+  }
+}
+
+export const TableHeader = styled.th<TableHeaderProps>`
   font-family: ${tokens.fontFamily};
   text-align: left;
   color: ${tokens.colors.gray800};
@@ -27,6 +42,13 @@ export const TableHeader = styled.th`
   &:first-of-type, &:last-of-type {
     padding-right: ${tokens.spaces[4]}px;
     padding-left: ${tokens.spaces[4]}px;
+  }
+  &:after {
+    display: inline-block;
+    margin-left: ${tokens.spaces[2]}px;
+    content: ${getSortMakerContent};
+    height: ${tokens.spaces[2]}px;
+    width: ${tokens.spaces[2]}px;
   }
 `
 
