@@ -59,12 +59,14 @@ const MultiSelect = (props: MultiSelectProps) => {
                 <OptionsContainer>
                     {Array.from(props.options).map(([id, label]) => (
                         <Option key={id}>
-                            <Checkbox
-                                data-id={id}
-                                onChange={props.onChange}
-                                checked={props.selected.includes(id)}
-                            />
-                            <Label>{label}</Label>
+                            <Label>
+                                <Checkbox
+                                    data-id={id}
+                                    onChange={props.onChange}
+                                    checked={props.selected.includes(id)}
+                                />
+                                {label}
+                            </Label>
                         </Option>
                     ))}
                 </OptionsContainer>
