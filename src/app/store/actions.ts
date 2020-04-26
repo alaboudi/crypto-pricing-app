@@ -18,7 +18,7 @@ export const createStockAddedEvent = createAction<StockAddedEventPayload>("Stock
 
 interface StockPriceRetrievedEventPayload {
     id: number;
-    cents: number;
+    price: number;
 }
 export const createStockPriceRetrievedEvent = createAction<StockPriceRetrievedEventPayload>("Stock Price Retrieved");
 

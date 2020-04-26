@@ -49,7 +49,7 @@ const handleStockAddedEvent = produce((state: State, action: ReturnType<typeof c
 });
 
 const handleStockPriceRetrievedEvent = produce((state: State, action: ReturnType<typeof createStockPriceRetrievedEvent>) => {
-    state.prices.set(action.payload.id, action.payload.cents);
+    state.prices.set(action.payload.id, action.payload.price);
     state.loading = false;
 });
 
