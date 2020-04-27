@@ -1,7 +1,7 @@
 import React, {MouseEvent, useMemo} from "react";
 import { useTable, useSortBy, Column, Cell } from "react-table";
 import {Table, TableData, TableHeader, TableRow, TableHead, TableBody} from "../../../lib/ds/table";
-import Button from "../../../lib/ds/button";
+import Button, { Variant, Color } from "../../../lib/ds/button";
 
 interface Crypto {
     id: number; rank: number; symbol: string; price: string;
@@ -19,7 +19,13 @@ const CryptoPriceTracker = (props: CryptoPriceTrackerProps) => {
             { Header: 'Symbol', accessor: 'symbol' },
             { Header: 'Price', accessor: 'price' },
             { id: 'action', Cell: ({ row }: Cell<Crypto>) => {
-                return (<Button data-id={row.original.id} onClick={props.onDeleteClick}>Delete</Button>)
+                return (
+                <Button
+                    data-id={row.original.id}
+                    onClick={props.onDeleteClick}
+                    variant={Variant.Naked}
+                    color={Color.Danger}
+                >Delete</Button>)
             }}
         ],
         [props.onDeleteClick]
