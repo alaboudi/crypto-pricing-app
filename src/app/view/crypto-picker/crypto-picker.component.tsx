@@ -12,7 +12,7 @@ const CryptoPicker = (props: CryptoPickerProps) => (
     <MultiSelect
         onChange={props.onCryptoChange}
         options={props.cryptoList}
-        placeholder="Select Crypto Currencies"
+        placeholder="Select Crypto"
         selected={props.selectedCryptoIds}
     />
 );

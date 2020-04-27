@@ -98,11 +98,11 @@ const getButtonComponentByVariant = (variant: Variant) => {
 }
 
 const ButtonStartIconContainer = styled.span`
-    margin-right: ${tokens.spaces[1]}px;
+    margin-right: ${tokens.spaces[2]}px;
 `;
 
 const ButtonEndIconContainer = styled.span`
-    margin-left: ${tokens.spaces[1]}px;
+    margin-left: ${tokens.spaces[2]}px;
 `;
 
 const Button = (props: ButtonProps) => {
