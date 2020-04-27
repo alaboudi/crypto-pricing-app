@@ -5,7 +5,7 @@ import tokens from "./tokens";
 
 import Checkbox from "./checkbox";
 import Label from "./label";
-import Input from "./input";
+import Button from "./button";
 
 const Container = styled.div`
   display: inline-block;
@@ -54,7 +54,10 @@ const MultiSelect = (props: MultiSelectProps) => {
 
     return (
         <Container ref={containingElementRef}>
-            <Input placeholder={props.placeholder} onClick={showOptions} readOnly/>
+            <Button
+                onClick={showOptions}
+                endIcon="▼"
+            >{props.placeholder}</Button>
             {AreOptionsVisible && (
                 <OptionsContainer>
                     {Array.from(props.options).map(([id, label]) => (

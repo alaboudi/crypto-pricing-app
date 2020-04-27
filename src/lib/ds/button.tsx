@@ -12,16 +12,27 @@ export enum Color {
     Default = "default"
 }
 
-interface ButtonProps {
+interface CustomButtonProps {
     variant?: Variant;
     color?: Color;
     startIcon?: any;
     endIcon?: any;
-    children: any;
 }
 
+type NativeButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
+
+// interface ButtonProps {
+//     variant?: Variant;
+//     color?: Color;
+//     startIcon?: any;
+//     endIcon?: any;
+//     children: any
+// }
+
+type ButtonProps = NativeButtonProps & CustomButtonProps;
+
 // this is a private implementation that should not be exported
-const BaseButton = styled.button<ButtonProps>`
+const BaseButton = styled.button<CustomButtonProps>`
     font-family: ${tokens.fontFamily};
     font-size: ${tokens.typeScale[2]}px;
     border-width: 1px;

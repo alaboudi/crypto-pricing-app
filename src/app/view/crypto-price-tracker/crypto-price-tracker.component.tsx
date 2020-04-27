@@ -1,7 +1,7 @@
 import React, {MouseEvent, useMemo} from "react";
 import { useTable, useSortBy, Column, Cell } from "react-table";
 import {Table, TableData, TableHeader, TableRow, TableHead, TableBody} from "../../../lib/ds/table";
-import ButtonProps from "../../../lib/ds/button";
+import Button from "../../../lib/ds/button";
 
 interface Crypto {
     id: number; rank: number; symbol: string; price: string;
