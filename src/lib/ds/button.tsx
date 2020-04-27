@@ -21,20 +21,13 @@ interface CustomButtonProps {
 
 type NativeButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
-// interface ButtonProps {
-//     variant?: Variant;
-//     color?: Color;
-//     startIcon?: any;
-//     endIcon?: any;
-//     children: any
-// }
-
 type ButtonProps = NativeButtonProps & CustomButtonProps;
 
 // this is a private implementation that should not be exported
 const BaseButton = styled.button<CustomButtonProps>`
     font-family: ${tokens.fontFamily};
     font-size: ${tokens.typeScale[2]}px;
+    line-height: 1;
     border-width: 1px;
     border-style: solid;
     &:hover {
@@ -92,7 +85,7 @@ const StandardButton = styled(BaseButton)`
     background-color: ${getStandardButtonBackgroundColor};
     border-color: ${getStandardButtonBorderColor};
     color: ${getStandardButtonFontColor};
-    height: ${tokens.spaces[3]}px;
+    padding: ${tokens.spaces[2]}px ${tokens.spaces[2]}px;
 `;
 
 const getButtonComponentByVariant = (variant: Variant) => {
